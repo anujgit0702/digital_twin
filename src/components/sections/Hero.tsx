@@ -1,3 +1,5 @@
+"use client";
+
 // Hero section — name, title, tagline, and CTA buttons
 
 import { RiLinkedinBoxFill, RiGithubFill, RiMessage3Line } from "react-icons/ri";

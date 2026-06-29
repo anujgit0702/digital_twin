@@ -32,7 +32,6 @@ export const About = () => {
                 alt={`${personalInfo.name} profile photo`}
                 fill
                 className="object-cover"
-                onError={() => {}}
               />
             </div>
           </div>
