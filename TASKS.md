@@ -170,3 +170,5 @@
 |---|---|---|
 | Jun 2026 | All 5 planning docs drafted in Claude.ai | Copy docs to folder · start Phase 1 setup |
 | Jun 2026 | Phase 1 complete — git init, GitHub remote, Next.js scaffold, deps installed, boilerplate cleaned, committed and pushed | Start Phase 2: Task 2.1 (src/types/index.ts) |
+| Jun 2026 | Phase 2 complete — types, content.ts, utils.ts, persona.ts committed and pushed | Start Phase 3: Task 3.1 (layout.tsx) |
+| Jun 2026 | Phase 3 complete — layout.tsx (Inter, SEO, ThemeProvider), globals.css, Navbar.tsx, page.tsx committed and pushed | Start Phase 4: Task 4.1 (Hero.tsx) |
