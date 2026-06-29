@@ -28,7 +28,7 @@ export const About = () => {
           <div className="shrink-0">
             <div className="relative h-48 w-48 overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
               <Image
-                src="/photo.jpg"
+                src="/photo.jpeg"
                 alt={`${personalInfo.name} profile photo`}
                 fill
                 className="object-cover"
