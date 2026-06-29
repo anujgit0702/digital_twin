@@ -87,14 +87,14 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| 4.1 | Build `Hero.tsx` | ⬜ Todo | Name, title, tagline, CTA buttons (LinkedIn, GitHub, Chat) |
-| 4.2 | Build `About.tsx` | ⬜ Todo | Photo, summary paragraph, key facts |
-| 4.3 | Build `Skills.tsx` | ⬜ Todo | Grouped skill badges by category |
-| 4.4 | Build `ExperienceCard.tsx` (reusable component) | ⬜ Todo | Company, title, duration, location, bullet points |
-| 4.5 | Build `Experience.tsx` section | ⬜ Todo | Maps over jobs array from content.ts |
-| 4.6 | Build `ProjectCard.tsx` (reusable component) | ⬜ Todo | Title, description, tools, status badge, link |
-| 4.7 | Build `Projects.tsx` section | ⬜ Todo | Maps over projects array from content.ts |
-| 4.8 | Build `Contact.tsx` section | ⬜ Todo | Email, LinkedIn, GitHub links |
+| 4.1 | Build `Hero.tsx` | ✅ Done | Name, title, tagline, CTA buttons (LinkedIn, GitHub, Chat) |
+| 4.2 | Build `About.tsx` | ✅ Done | Photo, summary paragraph, key facts |
+| 4.3 | Build `Skills.tsx` | ✅ Done | Grouped skill badges by category |
+| 4.4 | Build `ExperienceCard.tsx` (reusable component) | ✅ Done | Company, title, duration, location, bullet points |
+| 4.5 | Build `Experience.tsx` section | ✅ Done | Maps over jobs array from content.ts |
+| 4.6 | Build `ProjectCard.tsx` (reusable component) | ✅ Done | Title, description, tools, status badge, link |
+| 4.7 | Build `Projects.tsx` section | ✅ Done | Maps over projects array from content.ts |
+| 4.8 | Build `Contact.tsx` section | ✅ Done | Email, LinkedIn, GitHub links |
 
 > 📌 **Commit checkpoint after 4.8:**
 > `git add .`
@@ -172,3 +172,4 @@
 | Jun 2026 | Phase 1 complete — git init, GitHub remote, Next.js scaffold, deps installed, boilerplate cleaned, committed and pushed | Start Phase 2: Task 2.1 (src/types/index.ts) |
 | Jun 2026 | Phase 2 complete — types, content.ts, utils.ts, persona.ts committed and pushed | Start Phase 3: Task 3.1 (layout.tsx) |
 | Jun 2026 | Phase 3 complete — layout.tsx (Inter, SEO, ThemeProvider), globals.css, Navbar.tsx, page.tsx committed and pushed | Start Phase 4: Task 4.1 (Hero.tsx) |
+| Jun 2026 | Phase 4 complete — Hero, About, Skills, ExperienceCard, Experience, ProjectCard, Projects, Contact all built and wired into page.tsx | Start Phase 5: Task 5.1 (chat/route.ts) |
