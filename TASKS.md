@@ -71,10 +71,10 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| 3.1 | Set up `src/app/layout.tsx` — root layout, fonts, metadata | ⬜ Todo | Google Fonts (Inter), SEO title/description |
-| 3.2 | Set up `src/app/globals.css` — base styles, CSS variables | ⬜ Todo | Dark mode variables, scrollbar styling |
-| 3.3 | Build `src/components/ui/Navbar.tsx` | ⬜ Todo | Logo/name · section links · dark mode toggle |
-| 3.4 | Set up `src/app/page.tsx` — main page importing all sections | ⬜ Todo | Section order: Hero → About → Skills → Experience → Projects → Contact |
+| 3.1 | Set up `src/app/layout.tsx` — root layout, fonts, metadata | ✅ Done | Inter font, SEO metadata, OG tags, ThemeProvider |
+| 3.2 | Set up `src/app/globals.css` — base styles, CSS variables | ✅ Done | Inter font variable wired in |
+| 3.3 | Build `src/components/ui/Navbar.tsx` | ✅ Done | Name, section links, dark mode toggle, mobile menu |
+| 3.4 | Set up `src/app/page.tsx` — main page importing all sections | ✅ Done | Navbar + section stubs with correct IDs in order |
 
 > 📌 **Commit checkpoint after 3.4:**
 > `git add .`
