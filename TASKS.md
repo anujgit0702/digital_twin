@@ -27,7 +27,7 @@
 | 0.3 | Draft CLAUDE.md | ✅ Done | Instructions for Claude Code |
 | 0.4 | Draft PLANNING.md | ✅ Done | Project brief and decisions |
 | 0.5 | Draft TASKS.md | ✅ Done | This file |
-| 0.6 | Copy all 5 docs into `digital-twin/` folder in Cursor | ⬜ Todo | Anuj to do manually |
+| 0.6 | Copy all 5 docs into `digital-twin/` folder in Cursor | ✅ Done | All 5 docs confirmed in digital_twin/ |
 
 ---
 
@@ -36,13 +36,13 @@
 | # | Task | Status | Notes |
 |---|---|---|---|
 | 1.1 | Create `digital-twin` folder locally and open in Cursor | ✅ Done | Already done |
-| 1.2 | Initialise git repo locally (`git init`) | ⬜ Todo | |
-| 1.3 | Create GitHub repo `digital-twin` (public or private) | ⬜ Todo | Anuj to create on github.com |
-| 1.4 | Scaffold Next.js app (`npx create-next-app@latest .`) | ⬜ Todo | TypeScript ✓ · Tailwind ✓ · App Router ✓ · src/ ✓ |
-| 1.5 | Install additional dependencies | ⬜ Todo | framer-motion · @anthropic-ai/sdk · react-icons · next-themes |
-| 1.6 | Create `.env.local` with Anthropic API key | ⬜ Todo | Anuj to add key manually — Claude Code must not touch this |
-| 1.7 | Verify `.env.local` is in `.gitignore` | ⬜ Todo | |
-| 1.8 | Clean up Next.js boilerplate (default page, globals.css) | ⬜ Todo | |
+| 1.2 | Initialise git repo locally (`git init`) | ✅ Done | |
+| 1.3 | Create GitHub repo `digital-twin` (public or private) | ✅ Done | https://github.com/anujgit0702/digital_twin.git |
+| 1.4 | Scaffold Next.js app (`npx create-next-app@latest .`) | ✅ Done | TypeScript ✓ · Tailwind ✓ · App Router ✓ · src/ ✓ |
+| 1.5 | Install additional dependencies | ✅ Done | framer-motion · @anthropic-ai/sdk · react-icons · next-themes |
+| 1.6 | Create `.env.local` with Anthropic API key | ✅ Done | Added by Anuj manually |
+| 1.7 | Verify `.env.local` is in `.gitignore` | ✅ Done | Covered by `.env*` rule |
+| 1.8 | Clean up Next.js boilerplate (default page, globals.css) | ✅ Done | |
 
 > 📌 **Commit checkpoint after 1.8:**
 > `git add .`
@@ -55,10 +55,10 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| 2.1 | Create `src/types/index.ts` — define all TypeScript types | ⬜ Todo | Job, Project, Skill, Award, Education, Certificate |
-| 2.2 | Create `src/data/content.ts` — typed content from CONTENT.md | ⬜ Todo | All jobs, projects, skills, awards, education |
-| 2.3 | Create `src/lib/utils.ts` — helper functions | ⬜ Todo | `cn()` for Tailwind class merging, `formatDate()` |
-| 2.4 | Create `src/data/persona.ts` — system prompt builder | ⬜ Todo | Builds Claude system prompt from TWIN_PERSONA.md |
+| 2.1 | Create `src/types/index.ts` — define all TypeScript types | ✅ Done | PersonalInfo, Job, Project, SkillGroup, Award, Education, Certificate, ChatMessage |
+| 2.2 | Create `src/data/content.ts` — typed content from CONTENT.md | ✅ Done | All jobs, projects, skills, awards, education, certificates, interests |
+| 2.3 | Create `src/lib/utils.ts` — helper functions | ✅ Done | `cn()` for Tailwind class merging, `formatDate()` |
+| 2.4 | Create `src/data/persona.ts` — system prompt builder | ✅ Done | buildSystemPrompt() + TWIN_OPENING_MESSAGE exported |
 
 > 📌 **Commit checkpoint after 2.4:**
 > `git add .`
@@ -169,3 +169,4 @@
 | Date | What was done | Next task |
 |---|---|---|
 | Jun 2026 | All 5 planning docs drafted in Claude.ai | Copy docs to folder · start Phase 1 setup |
+| Jun 2026 | Phase 1 complete — git init, GitHub remote, Next.js scaffold, deps installed, boilerplate cleaned, committed and pushed | Start Phase 2: Task 2.1 (src/types/index.ts) |
