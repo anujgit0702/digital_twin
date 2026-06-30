@@ -3,3 +3,18 @@
 @theme inline {
   --font-sans: var(--font-inter);
 }
+
+/* Dot grid pattern for hero background */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(99, 102, 241, 0.25) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Slow bounce for scroll indicator */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 1.8s ease-in-out infinite;
+}

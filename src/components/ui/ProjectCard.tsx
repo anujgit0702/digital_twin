@@ -1,13 +1,13 @@
-// Reusable card for a single project entry
+// Reusable card for a single project — gradient top border + hover glow
 
 import { RiExternalLinkLine } from "react-icons/ri";
 import { cn } from "@/lib/utils";
 import type { Project } from "@/types";
 
 const STATUS_STYLES: Record<Project["status"], string> = {
-  Live: "bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300",
-  "In Progress": "bg-amber-50 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
-  Completed: "bg-zinc-100 text-zinc-600 dark:bg-zinc-700 dark:text-zinc-300",
+  Live: "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 dark:bg-emerald-950 dark:text-emerald-300 dark:ring-emerald-800",
+  "In Progress": "bg-amber-50 text-amber-700 ring-1 ring-amber-200 dark:bg-amber-950 dark:text-amber-300 dark:ring-amber-800",
+  Completed: "bg-slate-100 text-slate-600 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-300 dark:ring-slate-600",
 };
 
 interface ProjectCardProps {
@@ -16,50 +16,50 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className="flex flex-col rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-700 dark:bg-zinc-800">
-      {/* Title + status + link */}
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-          {project.title}
-        </h3>
-        <div className="flex shrink-0 items-center gap-2">
-          <span
-            className={cn(
-              "rounded-full px-2.5 py-0.5 text-xs font-medium",
-              STATUS_STYLES[project.status]
+    <div className="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg hover:shadow-indigo-500/10 hover:-translate-y-0.5 dark:border-slate-700 dark:bg-slate-800">
+      {/* Gradient top bar */}
+      <div className="h-1 w-full bg-gradient-to-r from-indigo-500 to-violet-500" />
+
+      <div className="flex flex-1 flex-col p-6">
+        {/* Title + status + link */}
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">
+            {project.title}
+          </h3>
+          <div className="flex shrink-0 items-center gap-2">
+            <span className={cn("rounded-full px-2.5 py-0.5 text-xs font-semibold", STATUS_STYLES[project.status])}>
+              {project.status}
+            </span>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`View ${project.title}`}
+                className="text-slate-400 transition-colors hover:text-indigo-500 dark:hover:text-indigo-400"
+              >
+                <RiExternalLinkLine size={16} />
+              </a>
             )}
-          >
-            {project.status}
-          </span>
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${project.title}`}
-              className="text-zinc-400 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              <RiExternalLinkLine size={16} />
-            </a>
-          )}
+          </div>
         </div>
-      </div>
 
-      {/* Description */}
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-        {project.description}
-      </p>
+        {/* Description */}
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+          {project.description}
+        </p>
 
-      {/* Tool badges */}
-      <div className="mt-4 flex flex-wrap gap-2">
-        {project.tools.map((tool) => (
-          <span
-            key={tool}
-            className="rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400"
-          >
-            {tool}
-          </span>
-        ))}
+        {/* Tool badges */}
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.tools.map((tool) => (
+            <span
+              key={tool}
+              className="rounded-md bg-slate-50 px-2.5 py-0.5 text-xs font-medium text-slate-600 ring-1 ring-slate-200 dark:bg-slate-700 dark:text-slate-400 dark:ring-slate-600"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

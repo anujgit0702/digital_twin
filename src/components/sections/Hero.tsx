@@ -1,65 +1,115 @@
 "use client";
 
-// Hero section — name, title, tagline, and CTA buttons
+// Hero section — always-dark, two-column: text + photo with gradient ring
 
+import Image from "next/image";
 import { RiLinkedinBoxFill, RiGithubFill, RiMessage3Line } from "react-icons/ri";
 import { personalInfo } from "@/data/content";
 
 export const Hero = () => {
+  const [firstName, lastName] = personalInfo.name.split(" ");
+
   return (
     <section
       id="hero"
-      className="flex min-h-screen items-center justify-center px-6"
+      className="relative flex min-h-screen items-center overflow-hidden bg-slate-950 px-6"
     >
-      <div className="mx-auto max-w-3xl text-center">
-        {/* Name */}
-        <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl md:text-6xl dark:text-zinc-100">
-          {personalInfo.name}
-        </h1>
+      {/* Dot grid overlay */}
+      <div className="dot-grid absolute inset-0 opacity-40" />
 
-        {/* Title */}
-        <p className="mt-4 text-lg font-medium text-zinc-600 sm:text-xl dark:text-zinc-400">
-          {personalInfo.title}
-        </p>
+      {/* Ambient glow orbs */}
+      <div className="pointer-events-none absolute -top-48 -left-48 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-48 -right-48 h-[500px] w-[500px] rounded-full bg-violet-600/15 blur-3xl" />
 
-        {/* Tagline */}
-        <p className="mt-3 text-base text-zinc-500 sm:text-lg dark:text-zinc-500">
-          {personalInfo.tagline}
-        </p>
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-16 py-32 md:flex-row md:items-center md:justify-between">
 
-        {/* CTA buttons */}
-        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-700"
-          >
-            <RiLinkedinBoxFill size={18} />
-            LinkedIn
-          </a>
+        {/* LEFT: Text content */}
+        <div className="flex flex-col items-center text-center md:max-w-2xl md:items-start md:text-left">
+          {/* Pill badge */}
+          <span className="mb-6 inline-block rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-indigo-400">
+            Senior Analytics Professional
+          </span>
 
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-zinc-900 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
-          >
-            <RiGithubFill size={18} />
-            GitHub
-          </a>
+          {/* Name with gradient on last name */}
+          <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl">
+            {firstName}{" "}
+            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+              {lastName}
+            </span>
+          </h1>
 
-          <button
-            onClick={() => {
-              const event = new CustomEvent("open-chat");
-              window.dispatchEvent(event);
-            }}
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-300 px-5 py-3 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-          >
-            <RiMessage3Line size={18} />
-            Chat with my AI twin
-          </button>
+          {/* Title */}
+          <p className="mt-4 text-lg font-semibold text-slate-300 sm:text-xl">
+            {personalInfo.title}
+          </p>
+
+          {/* Tagline */}
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-slate-400">
+            {personalInfo.tagline}
+          </p>
+
+          {/* CTA buttons */}
+          <div className="mt-10 flex flex-wrap justify-center gap-3 md:justify-start">
+            <a
+              href={personalInfo.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-500/25 transition-all hover:bg-indigo-500 hover:shadow-indigo-500/40"
+            >
+              <RiLinkedinBoxFill size={18} />
+              LinkedIn
+            </a>
+
+            <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/80 px-6 py-3 text-sm font-semibold text-slate-200 transition-all hover:border-slate-600 hover:bg-slate-700"
+            >
+              <RiGithubFill size={18} />
+              GitHub
+            </a>
+
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-chat"))}
+              className="inline-flex items-center gap-2 rounded-lg border border-violet-500/30 bg-violet-500/10 px-6 py-3 text-sm font-semibold text-violet-300 transition-all hover:border-violet-400/50 hover:bg-violet-500/20"
+            >
+              <RiMessage3Line size={18} />
+              Chat with my AI twin
+            </button>
+          </div>
         </div>
+
+        {/* RIGHT: Photo with gradient ring */}
+        <div className="relative shrink-0">
+          {/* Ambient glow behind photo */}
+          <div className="absolute inset-0 -m-6 rounded-full bg-gradient-to-br from-indigo-500/30 to-violet-600/20 blur-2xl" />
+
+          {/* Gradient border ring */}
+          <div className="relative h-64 w-64 rounded-full bg-gradient-to-br from-indigo-500 via-violet-500 to-indigo-600 p-[3px] shadow-2xl shadow-indigo-500/20 sm:h-80 sm:w-80">
+            {/* Photo container */}
+            <div className="relative h-full w-full overflow-hidden rounded-full bg-slate-900">
+              <Image
+                src="/photo.jpeg"
+                alt={`${personalInfo.name} profile photo`}
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Floating location badge */}
+          <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-slate-700 bg-slate-900 px-4 py-1.5 text-xs font-medium text-slate-300 shadow-xl">
+            📍 {personalInfo.location}
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 text-slate-600">
+        <span className="text-[10px] uppercase tracking-widest">Scroll</span>
+        <div className="animate-bounce-slow h-5 w-px bg-gradient-to-b from-slate-600 to-transparent" />
       </div>
     </section>
   );
