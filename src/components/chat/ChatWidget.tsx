@@ -121,7 +121,7 @@ export const ChatWidget = () => {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {/* Chat panel */}
       {isOpen && (
-        <div className="flex flex-col w-[360px] sm:w-[400px] h-[520px] rounded-2xl shadow-2xl border border-indigo-100 bg-white overflow-hidden">
+        <div className="flex flex-col w-[calc(100vw-2rem)] sm:w-[400px] h-[520px] rounded-2xl shadow-2xl border border-indigo-100 bg-white overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-indigo-600">
             <div className="flex items-center gap-2">

@@ -3,6 +3,7 @@
 import { RiBriefcase4Line } from "react-icons/ri";
 import { jobs } from "@/data/content";
 import { ExperienceCard } from "@/components/ui/ExperienceCard";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 /* Inline SVG: stylised career growth chart for section header */
 const CareerIllustration = () => (
@@ -35,7 +36,7 @@ export const Experience = () => {
   return (
     <section
       id="experience"
-      className="bg-white px-6 py-24 dark:bg-slate-900"
+      className="scroll-mt-20 bg-white px-6 py-24 dark:bg-slate-900"
     >
       <div className="mx-auto max-w-5xl">
         {/* Section heading + illustration row */}
@@ -57,11 +58,13 @@ export const Experience = () => {
           <div className="absolute left-0 top-3 hidden h-full w-px bg-gradient-to-b from-indigo-500 via-violet-400 to-transparent md:block" />
 
           {jobs.map((job, i) => (
-            <div key={i} className="relative md:pl-8">
+            <FadeIn key={i} delay={i * 0.08}>
+            <div className="relative md:pl-8">
               {/* Timeline dot */}
-              <div className="absolute -left-[5px] top-6 hidden h-2.5 w-2.5 rounded-full border-2 border-indigo-500 bg-white dark:bg-slate-900 md:block" />
+              <div className="absolute -left-[5px] top-6 hidden h-2.5 w-2.5 rounded-full border-2 border-indigo-500 bg-white md:block" />
               <ExperienceCard job={job} />
             </div>
+            </FadeIn>
           ))}
         </div>
       </div>

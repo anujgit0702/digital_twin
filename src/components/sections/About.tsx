@@ -2,6 +2,7 @@
 
 import { RiMapPinLine, RiBriefcaseLine, RiRobot2Line, RiBarChartBoxLine } from "react-icons/ri";
 import { personalInfo } from "@/data/content";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 const KEY_FACTS = [
   { icon: RiMapPinLine, label: personalInfo.location },
@@ -65,7 +66,7 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="bg-white px-6 py-24 dark:bg-slate-900"
+      className="scroll-mt-20 bg-white px-6 py-24 dark:bg-slate-900"
     >
       <div className="mx-auto max-w-5xl">
         {/* Section heading */}
@@ -74,6 +75,7 @@ export const About = () => {
         </h2>
         <div className="mt-2 h-1 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
 
+        <FadeIn>
         <div className="mt-12 flex flex-col gap-12 md:flex-row md:items-center">
 
           {/* LEFT: Text content */}
@@ -106,6 +108,7 @@ export const About = () => {
             </div>
           </div>
         </div>
+        </FadeIn>
       </div>
     </section>
   );

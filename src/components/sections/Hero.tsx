@@ -3,7 +3,7 @@
 // Hero section — always-dark, two-column: text + photo with gradient ring
 
 import Image from "next/image";
-import { RiLinkedinBoxFill, RiGithubFill, RiMessage3Line } from "react-icons/ri";
+import { RiLinkedinBoxFill, RiGithubFill, RiMessage3Line, RiMapPin2Line } from "react-icons/ri";
 import { personalInfo } from "@/data/content";
 
 export const Hero = () => {
@@ -78,6 +78,12 @@ export const Hero = () => {
               Chat with my AI twin
             </button>
           </div>
+
+          {/* Location */}
+          <div className="mt-6 flex items-center justify-center gap-1.5 text-sm text-slate-400 md:justify-start">
+            <RiMapPin2Line size={16} aria-hidden />
+            {personalInfo.location}
+          </div>
         </div>
 
         {/* RIGHT: Photo with gradient ring */}
@@ -97,11 +103,6 @@ export const Hero = () => {
                 priority
               />
             </div>
-          </div>
-
-          {/* Floating location badge */}
-          <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-slate-700 bg-slate-900 px-4 py-1.5 text-xs font-medium text-slate-300 shadow-xl">
-            📍 {personalInfo.location}
           </div>
         </div>
       </div>

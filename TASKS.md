@@ -113,8 +113,8 @@
 | 5.4 | Build `ChatWidget.tsx` — floating chat container | ✅ Done | Open/close toggle · message thread · scroll to bottom · rate limit message |
 | 5.5 | Integrate chat widget into `page.tsx` | ✅ Done | Floating bottom-right position |
 | 5.6 | Add rate limiting to chat API route | ✅ Done | 20 messages per IP per server session |
-| 5.7 | Test full conversation flows | ⬜ Todo | Experience Q&A · projects · skills · unknown question deflect |
-| 5.8 | Refine persona prompt based on test results | ⬜ Todo | Iterate until responses feel like Anuj |
+| 5.7 | Test full conversation flows | ✅ Done | Experience Q&A · projects · skills · unknown question deflect — tested in browser |
+| 5.8 | Refine persona prompt based on test results | ✅ Done | Concise replies, no markdown, no trailing questions, Refyne designation fixed, links as hyperlinks |
 
 > 📌 **Commit checkpoint after 5.8:**
 > `git add .`
@@ -127,13 +127,13 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| 6.1 | Mobile responsiveness audit — all sections | ⬜ Todo | Test on 375px, 768px, 1280px viewports |
-| 6.2 | Dark mode audit — all sections | ⬜ Todo | Every component must work in both modes |
-| 6.3 | Add subtle animations with Framer Motion | ⬜ Todo | Fade-in on scroll for sections |
-| 6.4 | SEO metadata — title, description, OG tags | ⬜ Todo | In layout.tsx |
-| 6.5 | Accessibility check — alt text, aria labels, tab order | ⬜ Todo | |
-| 6.6 | Performance check — image optimisation, lazy loading | ⬜ Todo | Use Next.js `<Image>` component |
-| 6.7 | Anuj reviews and approves Phase 1 build | ⬜ Todo | Final sign-off before Phase 2 |
+| 6.1 | Mobile responsiveness audit — all sections | ✅ Done | ChatWidget width fixed for 375px screens; all sections already mobile-first |
+| 6.2 | Dark mode audit — all sections | ✅ Done | Dark mode intentionally removed (ThemeProvider dropped, toggle removed from Navbar) |
+| 6.3 | Add subtle animations with Framer Motion | ✅ Done | FadeIn component created; applied to About, Skills, Experience (staggered), Projects (staggered), Contact |
+| 6.4 | SEO metadata — title, description, OG tags | ✅ Done | Already in layout.tsx from Phase 3 |
+| 6.5 | Accessibility check — alt text, aria labels, tab order | ✅ Done | aria-label added to ChatInput textarea; SVGs have aria-hidden; all buttons and links labelled |
+| 6.6 | Performance check — image optimisation, lazy loading | ✅ Done | Next.js Image with priority already in use; no other images |
+| 6.7 | Anuj reviews and approves Phase 1 build | ✅ Done | Browser checklist run; found & fixed: navbar invisible on load (removed `pt-16` white-gap bug), scroll indicator mis-positioned (same fix), location badge moved below CTA row, chat persona fabricating answers (added no-fabrication rule + accurate "how site was built" content), chat replies too long/sarcastic/ending in questions (fixed contradictory example in system prompt, tightened tone/length rules, capped max_tokens). Anuj signed off. |
 
 > 📌 **Commit checkpoint after 6.7:**
 > `git add .`
@@ -147,7 +147,7 @@
 | # | Task | Status | Notes |
 |---|---|---|---|
 | 7.1 | Connect GitHub repo to Vercel | ⬜ Todo | |
-| 7.2 | Add `ANTHROPIC_API_KEY` to Vercel environment variables | ⬜ Todo | Anuj to do manually |
+| 7.2 | Add `DEEPSEEK_API_KEY` to Vercel environment variables | ⬜ Todo | Anuj to do manually |
 | 7.3 | Verify deployment builds successfully | ⬜ Todo | |
 | 7.4 | Add API usage cap / stricter rate limiting | ⬜ Todo | Protect against runaway costs |
 | 7.5 | Create OG image for LinkedIn preview | ⬜ Todo | 1200x630px, save to /public/og-image.png |
@@ -174,3 +174,7 @@
 | Jun 2026 | Phase 3 complete — layout.tsx (Inter, SEO, ThemeProvider), globals.css, Navbar.tsx, page.tsx committed and pushed | Start Phase 4: Task 4.1 (Hero.tsx) |
 | Jun 2026 | Phase 4 complete — Hero, About, Skills, ExperienceCard, Experience, ProjectCard, Projects, Contact all built and wired into page.tsx | Start Phase 5: Task 5.1 (chat/route.ts) |
 | Jul 2026 | Phase 5 tasks 5.1–5.6 complete — DeepSeek streaming API route, ChatInput, ChatMessage, ChatWidget, wired into page.tsx, IP rate limiting. @anthropic-ai/sdk removed. Live API test passed. | Tasks 5.7–5.8: browser testing and persona refinement |
+| Jul 2026 | Phase 5 complete (5.7–5.8) — browser tested 7 issues and fixed all: open-chat button, streaming throttle, no trailing questions, bold parsing, Refyne designation, hyperlinks, concise replies. Dark mode removed. Pushed to GitHub. | Start Phase 6 |
+| Jul 2026 | Phase 6 complete (6.1–6.6) — mobile width fix, dark mode removed, FadeIn component + staggered animations on all sections, SEO confirmed, aria-label on chat input, image optimisation confirmed. Task 7.2 updated to DEEPSEEK_API_KEY. | Task 6.7: Anuj sign-off, then Phase 7 deployment |
+| Jul 2026 | Task 6.7 in progress — browser test checklist shared with Anuj (10 areas, ~30 checks). Phase 6 code complete and build passes, NOT yet committed/pushed. Session ended. | Resume at 6.7: run checklist, fix issues, commit, push, start Phase 7 |
+| Jul 2026 | Task 6.7 complete — Anuj ran the checklist and found 4 issues, all fixed: navbar white-gap/visibility bug (`pt-16` removed from main, `scroll-mt-20` added to sections), scroll indicator position (same root cause), location badge moved below CTA buttons, chat persona fabricating an answer + being long/sarcastic/question-ending (persona.ts + TWIN_PERSONA.md tightened, max_tokens capped at 220). Anuj signed off. Not yet committed/pushed. | Commit + push Phase 6, then start Phase 7 (Vercel deployment) |

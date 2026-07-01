@@ -5,6 +5,7 @@ import {
   RiPieChartLine, RiRobot2Line, RiCloudLine, RiTableLine,
 } from "react-icons/ri";
 import { skillGroups, coreCompetencies } from "@/data/content";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 const TECH_ICONS = [
   { icon: RiDatabase2Line, label: "Data" },
@@ -38,7 +39,7 @@ export const Skills = () => {
   return (
     <section
       id="skills"
-      className="bg-slate-50 px-6 py-24 dark:bg-slate-950"
+      className="scroll-mt-20 bg-slate-50 px-6 py-24 dark:bg-slate-950"
     >
       <div className="mx-auto max-w-5xl">
         {/* Section heading */}
@@ -47,6 +48,7 @@ export const Skills = () => {
         </h2>
         <div className="mt-2 h-1 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
 
+        <FadeIn>
         <div className="mt-10">
           <TechBanner />
 
@@ -91,6 +93,7 @@ export const Skills = () => {
             </div>
           </div>
         </div>
+        </FadeIn>
       </div>
     </section>
   );

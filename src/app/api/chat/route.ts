@@ -56,8 +56,8 @@ export async function POST(req: NextRequest) {
           ...messages,
         ],
         stream: true,
-        max_tokens: 1024,
-        temperature: 0.7,
+        max_tokens: 220,
+        temperature: 0.6,
       }),
     });
 

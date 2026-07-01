@@ -2,6 +2,7 @@
 
 import { RiMailLine, RiLinkedinBoxFill, RiGithubFill } from "react-icons/ri";
 import { personalInfo } from "@/data/content";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 const LINKS = [
   {
@@ -64,7 +65,7 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 px-6 py-24"
+      className="relative scroll-mt-20 overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 px-6 py-24"
     >
       {/* Dot grid overlay */}
       <div className="dot-grid absolute inset-0 opacity-20" />
@@ -79,6 +80,7 @@ export const Contact = () => {
         </h2>
         <div className="mt-2 h-1 w-12 rounded-full bg-gradient-to-r from-indigo-400 to-violet-400" />
 
+        <FadeIn>
         <div className="mt-12 flex flex-col items-center gap-10 md:flex-row md:items-start md:justify-between">
 
           {/* Left: text + links */}
@@ -115,6 +117,7 @@ export const Contact = () => {
             <NetworkIllustration />
           </div>
         </div>
+        </FadeIn>
       </div>
     </section>
   );
