@@ -7,9 +7,14 @@ import { buildSystemPrompt } from '@/data/persona';
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions';
 const MODEL = 'deepseek-chat';
 const MAX_MESSAGES_PER_IP = 20;
+const MAX_MESSAGES_PER_DAY = 100;
 
 // In-memory rate limiter keyed by IP — resets on server restart
 const ipMessageCounts = new Map<string, number>();
+
+// In-memory global daily cap, protects against runaway DeepSeek API costs — resets on server restart or day change
+let dailyMessageCount = 0;
+let dailyCountDate = new Date().toISOString().slice(0, 10);
 
 function getClientIp(req: NextRequest): string {
   return (
@@ -21,6 +26,19 @@ function getClientIp(req: NextRequest): string {
 
 export async function POST(req: NextRequest) {
   try {
+    const today = new Date().toISOString().slice(0, 10);
+    if (today !== dailyCountDate) {
+      dailyCountDate = today;
+      dailyMessageCount = 0;
+    }
+
+    if (dailyMessageCount >= MAX_MESSAGES_PER_DAY) {
+      return NextResponse.json(
+        { error: 'Daily message limit reached. Please try again tomorrow.' },
+        { status: 429 }
+      );
+    }
+
     const ip = getClientIp(req);
     const count = ipMessageCounts.get(ip) ?? 0;
 
@@ -31,6 +49,7 @@ export async function POST(req: NextRequest) {
       );
     }
     ipMessageCounts.set(ip, count + 1);
+    dailyMessageCount += 1;
 
     const apiKey = process.env.DEEPSEEK_API_KEY;
     if (!apiKey) {

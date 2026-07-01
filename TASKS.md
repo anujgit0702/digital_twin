@@ -146,10 +146,10 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| 7.1 | Connect GitHub repo to Vercel | ⬜ Todo | |
-| 7.2 | Add `DEEPSEEK_API_KEY` to Vercel environment variables | ⬜ Todo | Anuj to do manually |
-| 7.3 | Verify deployment builds successfully | ⬜ Todo | |
-| 7.4 | Add API usage cap / stricter rate limiting | ⬜ Todo | Protect against runaway costs |
+| 7.1 | Connect GitHub repo to Vercel | ✅ Done | Repo imported and connected in Vercel dashboard |
+| 7.2 | Add `DEEPSEEK_API_KEY` to Vercel environment variables | ✅ Done | Added by Anuj, scoped to Production and Preview |
+| 7.3 | Verify deployment builds successfully | ✅ Done | Build succeeded, live site confirmed working (incl. chat widget) |
+| 7.4 | Add API usage cap / stricter rate limiting | ✅ Done | Added in-memory global daily cap (100 msgs/day, date-based reset) alongside existing 20/IP limit in `chat/route.ts`. Still soft/in-memory — resets on cold start, not a persistent store — acceptable trade-off for now given low traffic. |
 | 7.5 | Create OG image for LinkedIn preview | ⬜ Todo | 1200x630px, save to /public/og-image.png |
 | 7.6 | Add Vercel Analytics (optional) | ⬜ Todo | Free tier available |
 | 7.7 | Update LinkedIn profile with live URL | ⬜ Todo | Anuj to do |
