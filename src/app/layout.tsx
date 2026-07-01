@@ -1,8 +1,7 @@
-// Root layout — fonts, metadata, dark mode provider
+// Root layout — fonts, metadata
 
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
 const inter = Inter({
@@ -40,11 +39,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen bg-white font-sans antialiased dark:bg-slate-950">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+    <html lang="en" className={inter.variable}>
+      <body className="min-h-screen bg-white font-sans antialiased">
+        {children}
       </body>
     </html>
   );

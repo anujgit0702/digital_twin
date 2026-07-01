@@ -107,12 +107,12 @@
 
 | # | Task | Status | Notes |
 |---|---|---|---|
-| 5.1 | Create `src/app/api/chat/route.ts` — Claude API route | ⬜ Todo | Server-side only · reads persona.ts · streaming response |
-| 5.2 | Build `ChatInput.tsx` — message input and send button | ⬜ Todo | Enter key to send · loading state |
-| 5.3 | Build `ChatMessage.tsx` — individual message bubble | ⬜ Todo | User vs assistant styling · timestamp |
-| 5.4 | Build `ChatWidget.tsx` — floating chat container | ⬜ Todo | Open/close toggle · message thread · scroll to bottom |
-| 5.5 | Integrate chat widget into `page.tsx` | ⬜ Todo | Floating bottom-right position |
-| 5.6 | Add rate limiting to chat API route | ⬜ Todo | Max messages per session |
+| 5.1 | Create `src/app/api/chat/route.ts` — DeepSeek API route | ✅ Done | Server-side only · reads persona.ts · streaming response · DeepSeek API |
+| 5.2 | Build `ChatInput.tsx` — message input and send button | ✅ Done | Enter key to send · Shift+Enter for newline · disabled during stream |
+| 5.3 | Build `ChatMessage.tsx` — individual message bubble | ✅ Done | User vs assistant styling · blinking cursor while streaming |
+| 5.4 | Build `ChatWidget.tsx` — floating chat container | ✅ Done | Open/close toggle · message thread · scroll to bottom · rate limit message |
+| 5.5 | Integrate chat widget into `page.tsx` | ✅ Done | Floating bottom-right position |
+| 5.6 | Add rate limiting to chat API route | ✅ Done | 20 messages per IP per server session |
 | 5.7 | Test full conversation flows | ⬜ Todo | Experience Q&A · projects · skills · unknown question deflect |
 | 5.8 | Refine persona prompt based on test results | ⬜ Todo | Iterate until responses feel like Anuj |
 
@@ -173,3 +173,4 @@
 | Jun 2026 | Phase 2 complete — types, content.ts, utils.ts, persona.ts committed and pushed | Start Phase 3: Task 3.1 (layout.tsx) |
 | Jun 2026 | Phase 3 complete — layout.tsx (Inter, SEO, ThemeProvider), globals.css, Navbar.tsx, page.tsx committed and pushed | Start Phase 4: Task 4.1 (Hero.tsx) |
 | Jun 2026 | Phase 4 complete — Hero, About, Skills, ExperienceCard, Experience, ProjectCard, Projects, Contact all built and wired into page.tsx | Start Phase 5: Task 5.1 (chat/route.ts) |
+| Jul 2026 | Phase 5 tasks 5.1–5.6 complete — DeepSeek streaming API route, ChatInput, ChatMessage, ChatWidget, wired into page.tsx, IP rate limiting. @anthropic-ai/sdk removed. Live API test passed. | Tasks 5.7–5.8: browser testing and persona refinement |

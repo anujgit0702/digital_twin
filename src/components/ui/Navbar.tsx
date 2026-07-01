@@ -1,10 +1,9 @@
 "use client";
 
-// Sticky navbar — name/logo, section links, dark mode toggle, mobile menu
+// Sticky navbar — name/logo, section links, mobile menu
 
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import { RiMoonLine, RiSunLine, RiMenuLine, RiCloseLine } from "react-icons/ri";
+import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { cn } from "@/lib/utils";
 import { personalInfo } from "@/data/content";
 
@@ -17,38 +16,31 @@ const NAV_LINKS = [
 ];
 
 export const Navbar = () => {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 16);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/95 shadow-sm backdrop-blur-md dark:bg-slate-900/95 dark:shadow-slate-800/50"
+          ? "bg-white/95 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       )}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* Name / logo — always white at top (hero is dark), switches on scroll */}
+        {/* Name / logo */}
         <a
           href="#"
           className={cn(
             "text-lg font-bold tracking-tight transition-colors",
-            scrolled
-              ? "text-slate-900 dark:text-white"
-              : "text-white"
+            scrolled ? "text-slate-900" : "text-white"
           )}
         >
           {personalInfo.name}
@@ -61,10 +53,8 @@ export const Navbar = () => {
               <a
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-indigo-400",
-                  scrolled
-                    ? "text-slate-600 dark:text-slate-400"
-                    : "text-slate-300"
+                  "text-sm font-medium transition-colors hover:text-indigo-500",
+                  scrolled ? "text-slate-600" : "text-slate-300"
                 )}
               >
                 {link.label}
@@ -73,48 +63,31 @@ export const Navbar = () => {
           ))}
         </ul>
 
-        {/* Right side: theme toggle + mobile menu */}
-        <div className="flex items-center gap-3">
-          {mounted && (
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle dark mode"
-              className={cn(
-                "rounded-md p-2 transition-colors hover:text-indigo-400",
-                scrolled
-                  ? "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
-                  : "text-slate-300 hover:bg-white/10"
-              )}
-            >
-              {theme === "dark" ? <RiSunLine size={18} /> : <RiMoonLine size={18} />}
-            </button>
+        {/* Mobile menu toggle */}
+        <button
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Toggle menu"
+          className={cn(
+            "rounded-md p-2 transition-colors hover:text-indigo-400 md:hidden",
+            scrolled
+              ? "text-slate-600 hover:bg-slate-100"
+              : "text-slate-300 hover:bg-white/10"
           )}
-
-          <button
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-            className={cn(
-              "rounded-md p-2 transition-colors hover:text-indigo-400 md:hidden",
-              scrolled
-                ? "text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
-                : "text-slate-300 hover:bg-white/10"
-            )}
-          >
-            {menuOpen ? <RiCloseLine size={20} /> : <RiMenuLine size={20} />}
-          </button>
-        </div>
+        >
+          {menuOpen ? <RiCloseLine size={20} /> : <RiMenuLine size={20} />}
+        </button>
       </nav>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-slate-200 bg-white/95 px-6 pb-4 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/95 md:hidden">
+        <div className="border-t border-slate-200 bg-white/95 px-6 pb-4 backdrop-blur-md md:hidden">
           <ul className="flex flex-col gap-4 pt-4">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block text-sm font-medium text-slate-600 transition-colors hover:text-indigo-500 dark:text-slate-400 dark:hover:text-indigo-400"
+                  className="block text-sm font-medium text-slate-600 transition-colors hover:text-indigo-500"
                 >
                   {link.label}
                 </a>
