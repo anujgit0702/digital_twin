@@ -39,7 +39,7 @@ export const ChatInput = ({ onSend, disabled = false }: ChatInputProps) => {
   };
 
   return (
-    <div className="flex items-end gap-2 border-t border-indigo-100 dark:border-indigo-900 bg-white dark:bg-gray-900 px-3 py-3">
+    <div className="flex items-end gap-2 border-t border-indigo-100 bg-white px-3 py-3">
       <textarea
         ref={textareaRef}
         rows={1}

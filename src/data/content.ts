@@ -157,7 +157,7 @@ export const projects: Project[] = [
     title: "Digital Twin — AI Portfolio Website",
     description:
       "AI-powered personal portfolio with an embedded chat agent that responds as Anuj Mittal, allowing visitors to have a professional conversation about his experience, skills, and projects. Built to attract recruiters and employers discovering him via LinkedIn.",
-    tools: ["Next.js", "Tailwind CSS", "Claude API", "Vercel"],
+    tools: ["Next.js", "Tailwind CSS", "DeepSeek API", "Vercel"],
     status: "In Progress",
     link: "https://github.com/anujgit0702",
   },

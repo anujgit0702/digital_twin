@@ -66,11 +66,11 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="scroll-mt-20 bg-white px-6 py-24 dark:bg-slate-900"
+      className="scroll-mt-20 bg-white px-6 py-24"
     >
       <div className="mx-auto max-w-5xl">
         {/* Section heading */}
-        <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+        <h2 className="text-3xl font-bold tracking-tight text-slate-900">
           About
         </h2>
         <div className="mt-2 h-1 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
@@ -80,7 +80,7 @@ export const About = () => {
 
           {/* LEFT: Text content */}
           <div className="flex flex-1 flex-col gap-6">
-            <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="text-base leading-relaxed text-slate-600">
               {personalInfo.summary}
             </p>
 
@@ -89,7 +89,7 @@ export const About = () => {
               {KEY_FACTS.map(({ icon: Icon, label }) => (
                 <li
                   key={label}
-                  className="flex items-center gap-3 rounded-lg border border-slate-100 bg-slate-50 px-4 py-3 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                  className="flex items-center gap-3 rounded-lg border border-slate-100 bg-slate-50 px-4 py-3 text-sm text-slate-700"
                 >
                   <Icon size={16} className="shrink-0 text-indigo-500" />
                   {label}
@@ -100,8 +100,8 @@ export const About = () => {
 
           {/* RIGHT: Analytics illustration */}
           <div className="mx-auto w-full max-w-sm shrink-0 md:mx-0">
-            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+            <div className="rounded-2xl border border-slate-100 bg-slate-50 p-6 shadow-sm">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-slate-400">
                 Analytics Impact
               </p>
               <AnalyticsIllustration />

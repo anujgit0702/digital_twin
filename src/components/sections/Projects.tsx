@@ -55,13 +55,13 @@ export const Projects = () => {
   return (
     <section
       id="projects"
-      className="scroll-mt-20 bg-slate-50 px-6 py-24 dark:bg-slate-950"
+      className="scroll-mt-20 bg-slate-50 px-6 py-24"
     >
       <div className="mx-auto max-w-5xl">
         {/* Section heading + illustration row */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900">
               Projects
             </h2>
             <div className="mt-2 h-1 w-12 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500" />
