@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://anujmittal.site"),
   title: "Anuj Mittal — Senior Analytics Professional",
   description:
     "Portfolio of Anuj Mittal — 8+ years in analytics, experimentation, and business intelligence. Currently at American Express via EXL. Targeting Analytics Manager roles with an Agentic AI focus.",
